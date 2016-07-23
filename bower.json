@@ -1,0 +1,22 @@
+{
+  "name": "purescript-template-strings",
+  "homepage": "https://github.com/purescripters/purescript-template-strings",
+  "description": "ES6 style template strings for Purescript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/purescripters/purescript-template-strings.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-console": "^1.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^1.0.0"
+  }
+}
