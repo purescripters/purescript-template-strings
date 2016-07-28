@@ -19,6 +19,11 @@ Sample usage:
 > import Data.Show (show)
 > "Pi: ${pi}, Phi: ${phi}" <^> ["pi" /\ (show 3.1415), "phi" /\ (show 1.618)]
 "Pi: 3.1415, Phi: 1.618"
+```
+
+```haskell
+> import Data.TemplateString ((<->))
+> import Data.Tuple.Nested ((/\))
 > "Pi: ${pi}, Phi: ${phi}" <-> ["pi" /\ 3.1415, "phi" /\ 1.618]
 "Pi: 3.1415, Phi: 1.618"
 ```
