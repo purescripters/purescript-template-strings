@@ -1,5 +1,5 @@
 module Data.TemplateString
-  ((<^>)
+  ( (<^>)
   , template
   , (<->)
   , templateS  
