@@ -1,2 +1,4 @@
-Risto Stevcev  
-Dario Oddenino
+* Risto Stevcev
+* Dario Oddenino
+* Liam Goodacre (https://github.com/LiamGoodacre)
+

@@ -1,8 +1,10 @@
 
-// module Data.TemplateString.Unsafe
+var templatePattern = /\$\{([^}]+)\}/g;
 
-exports._template = function(str, obj) {
-  return Object.keys(obj).reduce(function(newStr, key) {
-    return newStr.replace(new RegExp('\\${'+ key +'}', 'g'), obj[key]);
-  }, str);
-}
+exports._templateBy = function (keyFrom, str, obj) {
+  return str.replace(templatePattern, function (match, ident) {
+     var key = keyFrom(ident);
+     return Object.hasOwnProperty.call(obj, key) ? obj[key] : match;
+  });
+};
+
