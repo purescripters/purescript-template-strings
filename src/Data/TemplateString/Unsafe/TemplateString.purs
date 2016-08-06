@@ -1,14 +1,34 @@
 module Data.TemplateString.Unsafe
   ((<~>)
   , template
+  , templateBy
   ) where
 
-import Data.Function.Uncurried (Fn2, runFn2)
+import Control.Category (id)
+import Data.Function.Uncurried (Fn3, runFn3)
 
--- | This is the unsafe version. Javascript will coerce whatever it's given to a string
+-- | Unsafe: JavaScript will coerce values to strings.
+-- | Supports a key mapping function for transforming keys found in the template.
+-- |
+-- | Example:
+-- | ```purescript
+-- | > templateBy String.toUpper "${foo} ${Foo} ${FOO}" { FOO: 42 }
+-- | = "42 42 42"
+-- | ```
+templateBy :: forall a. (String -> String) -> String -> { | a } -> String
+templateBy = runFn3 _templateBy
+
+-- | Unsafe: JavaScript will coerce values to strings.
+-- | Keys must match exactly.
+-- |
+-- | Example:
+-- | ```purescript
+-- | > "${foo} ${Foo} ${FOO} ${Bar}" <~> { Foo: 42, Bar: "!!!" }
+-- | = "${foo} 42 ${FOO} !!!"
+-- | ```
 template :: forall a. String -> { | a } -> String
-template = runFn2 _template
+template = runFn3 _templateBy id
 
 infix 7 template as <~>
 
-foreign import _template :: forall a. Fn2 String { | a } String
+foreign import _templateBy :: forall a. Fn3 (String -> String) String { | a } String
