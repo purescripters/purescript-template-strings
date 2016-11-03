@@ -3,6 +3,7 @@ module Test.Data.TemplateString where
 import Prelude (Unit, bind, (==))
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE)
+import Control.Monad.Aff.AVar (AVAR)
 
 import Test.Unit (test, suite)
 import Test.Unit.Main (runTest)
@@ -14,7 +15,7 @@ import Data.TemplateString ((<^>))
 import Data.Tuple.Nested
 
 
-main :: Eff ( console :: CONSOLE, testOutput :: TESTOUTPUT ) Unit
+main :: Eff ( console :: CONSOLE, testOutput :: TESTOUTPUT, avar :: AVAR ) Unit
 main = runTest do
   suite "Unsafe" do
     test "template" do
