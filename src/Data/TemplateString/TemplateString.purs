@@ -2,10 +2,10 @@ module Data.TemplateString
   ( (<^>)
   , template
   , (<->)
-  , templateS  
+  , templateS
   ) where
 
-import Prelude (map, ($), (<<<), show, (<>))
+import Prelude (map, (<<<), show, (<>))
 import Data.Tuple (Tuple)
 import Data.Show (class Show)
 import Data.TemplateString.Unsafe (templateBy)

@@ -14,12 +14,12 @@
     "output"
   ],
   "dependencies": {
-    "purescript-console": "2.x",
-    "purescript-functions": "2.x",
-    "purescript-tuples": "3.x"
+    "purescript-console": "^2.0.0",
+    "purescript-functions": "^2.0.0",
+    "purescript-tuples": "^3.2.0"
   },
   "devDependencies": {
-    "purescript-psci-support": "2.x",
-    "purescript-test-unit": "10.x"
+    "purescript-psci-support": "^2.0.0",
+    "purescript-test-unit": "^10.1.0"
   }
 }
