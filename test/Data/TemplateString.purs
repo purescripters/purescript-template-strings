@@ -1,6 +1,6 @@
 module Test.Data.TemplateString where
 
-import Prelude (Unit, bind, (==))
+import Prelude (Unit, discard, (==))
 import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE)
 import Control.Monad.Aff.AVar (AVAR)
