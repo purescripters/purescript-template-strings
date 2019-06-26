@@ -1,21 +1,18 @@
 module Test.Data.TemplateString where
 
 import Prelude (Unit, discard, (==))
-import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE)
-import Control.Monad.Aff.AVar (AVAR)
+import Effect (Effect)
 
 import Test.Unit (test, suite)
 import Test.Unit.Main (runTest)
 import Test.Unit.Assert (assert, equal)
-import Test.Unit.Console (TESTOUTPUT)
 import Data.TemplateString.Unsafe ((<~>))
 import Data.TemplateString ((<^>))
 
 import Data.Tuple.Nested
 
 
-main :: Eff ( console :: CONSOLE, testOutput :: TESTOUTPUT, avar :: AVAR ) Unit
+main :: Effect Unit
 main = runTest do
   suite "Unsafe" do
     test "template" do

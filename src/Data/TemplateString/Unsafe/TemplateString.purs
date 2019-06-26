@@ -4,7 +4,7 @@ module Data.TemplateString.Unsafe
   , templateBy
   ) where
 
-import Control.Category (id)
+import Control.Category (identity)
 import Data.Function.Uncurried (Fn3, runFn3)
 
 -- | Unsafe: JavaScript will coerce values to strings.
@@ -27,7 +27,7 @@ templateBy = runFn3 _templateBy
 -- | = "${foo} 42 ${FOO} !!!"
 -- | ```
 template :: forall a. String -> { | a } -> String
-template = runFn3 _templateBy id
+template = runFn3 _templateBy identity
 
 infix 7 template as <~>
 
