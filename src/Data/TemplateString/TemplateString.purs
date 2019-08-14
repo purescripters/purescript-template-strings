@@ -3,9 +3,11 @@ module Data.TemplateString
   , template
   , (<->)
   , templateS
+  , getTemplateVars
   ) where
 
 import Prelude (map, (<<<), show, (<>))
+import Data.Function.Uncurried (Fn1, runFn1)
 import Data.Tuple (Tuple)
 import Data.Show (class Show)
 import Data.TemplateString.Unsafe (templateBy)
@@ -34,5 +36,17 @@ templateS tmpl = template tmpl <<< map (map show)
 
 infix 7 templateS as <->
 
+-- | Get the template variables contained in a string.
+-- |
+-- | Example:
+-- | ```purescript
+-- | > getTemplateVars "Foo ${bar} baz ${qux}"
+-- | = ["bar", "qux"]
+-- | ```
+getTemplateVars :: String -> Array String
+getTemplateVars = runFn1 _getTemplateVars
+
 foreign import _buildExclamationKeyObject :: forall e. Array (Tuple String String) -> { | e }
+
+foreign import _getTemplateVars :: Fn1 String (Array String)
 
