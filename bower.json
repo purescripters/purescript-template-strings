@@ -15,11 +15,11 @@
   ],
   "dependencies": {
     "purescript-functions": "^4.0.0",
-    "purescript-tuples": "^5.0.0"
+    "purescript-tuples": "^5.1.0"
   },
   "devDependencies": {
-    "purescript-console": "^4.1.0",
-    "purescript-test-unit": "^14.0.0",
+    "purescript-console": "^4.2.0",
+    "purescript-test-unit": "^15.0.0",
     "purescript-psci-support": "^4.0.0"
   }
 }
