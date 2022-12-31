@@ -1,5 +1,5 @@
 
-exports._buildExclamationKeyObject = function (tuples) {
+export const _buildExclamationKeyObject = function (tuples) {
   var valueMap = {};
   tuples.forEach(function (tuple) {
     valueMap['!' + tuple.value0] = tuple.value1;
@@ -7,9 +7,9 @@ exports._buildExclamationKeyObject = function (tuples) {
   return valueMap;
 };
 
-var templatePattern = /\$\{([^}]+)\}/g;
+const templatePattern = /\$\{([^}]+)\}/g;
 
-exports._getTemplateVars = function (str) {
+export const _getTemplateVars = function (str) {
   return (str.match(templatePattern) || []).map(function (str) {
     return str.substring(2, str.length - 1);
   });
